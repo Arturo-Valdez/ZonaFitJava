@@ -85,6 +85,25 @@ public class AppZonaFit {
                     System.out.println("Fallo al agregar Cliente: " + cliente);
                 }
             }
+            case 4 -> {// 4. Modificar Cliente
+                System.out.println("--- Modificar Cliente ---");
+                System.out.print("Id Cliente: ");
+                var idCliente = Integer.parseInt(consola.nextLine());
+                System.out.print("Nombre: ");
+                var nombre = consola.nextLine();
+                System.out.print("Apellido: ");
+                var apellido = consola.nextLine();
+                System.out.print("Membresia: ");
+                var membresia = Integer.parseInt(consola.nextLine());
+                //Creamos el objeto a modificar
+                var cliente = new Cliente(idCliente, nombre, apellido, membresia);
+                var modificado = clienteDao.modificarCliente(cliente);
+                if(modificado){
+                    System.out.println("Cliente Modificado: " + cliente);
+                }else{
+                    System.out.println("Cliente NO Modificado: " + cliente);
+                }
+            }
         }
         return salir;
     }
