@@ -68,6 +68,23 @@ public class AppZonaFit {
                     System.out.println("Cliente NO encontrado: " + cliente);
                 }
             }
+            case 3 -> {// Agregar cliente
+                System.out.println("--- Agregar Cliente ---");
+                System.out.print("Nombre: ");
+                var nombre = consola.nextLine();
+                System.out.print("Apellido: ");
+                var apellido = consola.nextLine();
+                System.out.print("Membresia: ");
+                var membresia = Integer.parseInt(consola.nextLine());
+                //Creamos el objeto cliente (sin el id ya que es incrementable)
+                var cliente = new Cliente(nombre, apellido, membresia);
+                var agregado = clienteDao.agregarCliente(cliente);
+                if(agregado){
+                    System.out.println("Cliente agregado correctamente: " + cliente);
+                }else{
+                    System.out.println("Fallo al agregar Cliente: " + cliente);
+                }
+            }
         }
         return salir;
     }
