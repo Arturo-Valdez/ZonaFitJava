@@ -104,6 +104,23 @@ public class AppZonaFit {
                     System.out.println("Cliente NO Modificado: " + cliente);
                 }
             }
+            case 5 -> {// 5. Eliminar Cliente
+                System.out.println("--- Eliminar Cliente ---");
+                System.out.print("Id Cliente: ");
+                var idCliente = Integer.parseInt(consola.nextLine());
+                var cliente = new Cliente(idCliente);
+                var eliminado = clienteDao.eliminarCliente(cliente);
+                if(eliminado){
+                    System.out.println("Cliente eliminado: " + cliente);
+                }else{
+                    System.out.println("Cliente NO eliminado: " + cliente);
+                }
+            }
+            case 6 -> {
+                System.out.println("Hasta pronto!...");
+                salir = true;
+            }
+            default -> System.out.println("Operacion no reconocida: " + opcion);
         }
         return salir;
     }
